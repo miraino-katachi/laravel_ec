@@ -14,11 +14,11 @@
                         <div class="mycart_box">
                             {{$stock->name}} <br>
                             {{$stock->fee}}円<br>
-                            <img src="./image/{{$stock->img_path}}" alt="" class="incart">
+                            <img src="{{ asset('/image/'.$stock->img_path) }}" alt="" class="incart">
                             <br>
                             {{$stock->detail}} <br>
 
-                            <form action="mycart" method="post">
+                            <form action="{{ url('/mycart') }}" method="post">
                                 @csrf
                                 <input type="hidden" name="stock_id" value="{{ $stock->id }}">
                                 <input type="submit" value="カートに入れる">
