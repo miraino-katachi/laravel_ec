@@ -36,3 +36,25 @@ Windows環境でも問題なく動きます。
 
 ### 一部ソースコードを変更しています
 レンタルサーバー上で動作させるために、viewとweb.phpの書き方を少し変更しているところがあります。
+
+## その他
+### npm run dev でエラーが出た場合の対処方法
+
+「Laravel6.0(PHP7.3)+MySQL+Laradockで簡易的なECサイトを作る④」の記事
+https://note.com/mukae9/n/n103587d08ef2
+において、Windows環境で「npm run dev」を実行したときに、下記のようなエラーが出る場合があるようです。
+
+```
+'cross-env' は、内部コマンドまたは外部コマンド、
+操作可能なプログラムまたはバッチ ファイルとして認識されていません。
+```
+
+その場合は、下記のコマンドを実行してみてください。
+
+```
+npm install --no-bin-links
+npm install --save-dev cross-env
+set NODE_OPTIONS=--openssl-legacy-provider
+npm run dev
+```
+
